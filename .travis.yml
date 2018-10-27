@@ -2,6 +2,8 @@ sudo: false
 language: bash
 os:
   - linux
+before_install:
+  - cp config.cfg.example config.cfg
 install:
   - shellcheck --version
   - go get -u mvdan.cc/sh/cmd/shfmt
