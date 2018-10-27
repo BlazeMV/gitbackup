@@ -25,16 +25,16 @@ if [[ $FETCH_PRIVATE =~ ^true$ ]] ; then
     url_start="https://$GITHUB_TOKEN@github.com/"
 
     if [[ $FETCH_ORGANIZATION =~ ^true$ ]] ; then
-        curl --progress-bar -o repos.json -u $GITHUB_USERNAME:$GITHUB_TOKEN https://api.github.com/orgs/$GITHUB_ORGANIZATION/repos
+        curl --progress-bar -o repos.json -u "$GITHUB_USERNAME":"$GITHUB_TOKEN" https://api.github.com/orgs/"$GITHUB_ORGANIZATION"/repos
     else
-        curl --progress-bar -o repos.json -u $GITHUB_USERNAME:$GITHUB_TOKEN https://api.github.com/users/$GITHUB_USERNAME/repos
+        curl --progress-bar -o repos.json -u "$GITHUB_USERNAME":"$GITHUB_TOKEN" https://api.github.com/users/"$GITHUB_USERNAME"/repos
     fi
 else
     url_start="https://github.com/"
     if [[ $FETCH_ORGANIZATION =~ ^true$ ]] ; then
-        curl --progress-bar -o repos.json https://api.github.com/orgs/$GITHUB_ORGANIZATION/repos
+        curl --progress-bar -o repos.json https://api.github.com/orgs/"$GITHUB_ORGANIZATION"/repos
     else
-        curl --progress-bar -o repos.json https://api.github.com/users/$GITHUB_USERNAME/repos
+        curl --progress-bar -o repos.json https://api.github.com/users/"$GITHUB_USERNAME"/repos
     fi
 fi
 
