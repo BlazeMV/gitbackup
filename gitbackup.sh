@@ -68,5 +68,10 @@ cd ..
 rm repos.json
 echo "All repositories backed up!"
 
-printf "Press enter to exit..."
-read -r
+if [[ $AUTO_EXIT_ON_COMPLETE =~ ^true$ ]] ; then
+    echo "Exiting..."
+    exit
+else
+    printf "Press enter to exit..."
+    read -r
+fi
