@@ -13,7 +13,8 @@ check_tools() {
 check_tools
 
 #get config values from config file
-source config.cfg
+# shellcheck source=config.cfg
+. config.cfg
 
 #set case-insensitive matches
 shopt -s nocasematch
